@@ -96,7 +96,7 @@ function generate() {
   const gt = />/g;
   const amp = /\&(?![\w\d]+;)/g;
   const keywordsmodule = /(?<=(?<!(\/\/.*|\[\"[^\"\n]*|[\u00AB][^\u00BB]*?|[a-zA-Z]))module[\s\S]*)(((requires|opens|exports|transitive|to|provides|with|open||uses)(\s+))+)/gm;
-  const keywords = /(?<!(\/\/.*|(\[\"[^\"\n]*|\u00AB[^\u00BB]*?|[a-zA-Z])))(((new|super|this|extends|implements|if|case|else|(?<=(switch|@interface)[^{]*{[^{]*)default|continue|break|null|true|false|switch|throws|do|for|import|instanceof|return|while|assert)(\s*))+)(?=\W)/gm;
+  const keywords = /(?<!(\/\/.*|(\[\"[^\"\n]*|\u00AB[^\u00BB]*?|[a-zA-Z])))(((new|super|(?<!(class|interface|enum|module)[^{]*{[^{]*)var|this|extends|implements|if|case|else|(?<=(switch|@interface)[^{]*{[^{]*)default|continue|break|null|true|false|switch|throws|do|for|import|instanceof|return|while|assert)(\s*))+)(?=\W)/gm;
   const errors = /(?<!(\/\/.*|\[\"[^\"\n]*|\u00AB[^\u00BB]*?|[a-zA-Z]))(((throw|finally|catch|try)(\s*))+)(?=\W\D)/gm;  
   const primitives = /(?<!(\/\/.*|\[\"[^\"]*|\u00AB[^\u00BB]*?|\w))(((void|boolean|double|int|short|byte|char|long|float))(?=[\s\]\)\[])+)/gm;
   const annotations = /(?<!(\/\/.*|\[\"[^\"]*|\u00AB[^\u00BB]*?|[a-zA-Z]))((@(Override|Test|Begin|Deprecated|SafeVarargs|Target|Retention|Documented|Repeatable|FunctionalInterface|SuppressWarnings|Ignore|SupportedAnnotationTypes|SupportedSourceVersion)(\(.*?\))?))/gm;
